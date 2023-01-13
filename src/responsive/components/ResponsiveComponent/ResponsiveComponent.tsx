@@ -1,5 +1,5 @@
-import React, { Children } from "react";
-const { useDeviceIDentifier } = require("../../../hooks/useDeviceIdentifier");
+import React from "react";
+import { useDeviceIDentifier } from "../../hooks/useDeviceIdentifier";
 
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const ResponsiveComponent = (props: Props) => {
-    const { device } = useDeviceIDentifier();
+    const { device } = useDeviceIDentifier({});
 
     const isVisible = () => {
         if (props.all) {

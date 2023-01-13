@@ -1,8 +1,3 @@
-import * as React from 'react';
-
-export * from "../src"
-
-// Delete me
-export const Thing = () => {
-  return <div>the snozzberries taste like snozzberries</div>;
-};
+export * from "./layouts/components/SpaceLayout"
+export * from "./test/TestComponent"
+export * from "./responsive/components/ResponsiveComponent/ResponsiveComponent"
