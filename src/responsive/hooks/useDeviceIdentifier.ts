@@ -1,33 +1,24 @@
 "use strict";
 
 import { useCallback, useEffect, useState } from "react";
-import _devicesConfig from "../config/responsiveconfig.json";
+import { DeviceConfig, DevicesConfig } from "../interfaces";
+import { usePlataformContext } from "../../plataform/JCHPlataform/usePlataformContext";
+import { JCHPlataformContext } from "../../plataform/JCHPlataform/JCHPlataform";
 
 
 interface HookReturn {
     device: string | undefined
 }
 
-interface DeviceInfo {
-    name: string,
-    maxSize: number
-}
 
-interface DevicesInfo {
-    devices: Array<DeviceInfo>
-}
-
-interface DeviceIDentifierProps {
-    devicesInfo?: DevicesInfo
-}
-
-let devicesConfig = _devicesConfig as DevicesInfo;
-
-export const useDeviceIDentifier = (props: DeviceIDentifierProps) => {
+export const useDeviceIDentifier = (devicesInfo?: DevicesConfig | undefined) => {
     const [device, setDevice] = useState<string | undefined>();
+    const config: JCHPlataformContext = usePlataformContext();
 
-    if (props.devicesInfo) {
-        devicesConfig = props.devicesInfo
+    let devicesConfig: DevicesConfig = config.devices_config;
+
+    if (devicesInfo) {
+        devicesConfig = devicesInfo
     }
 
     const handleResize = useCallback(() => {
@@ -38,7 +29,7 @@ export const useDeviceIDentifier = (props: DeviceIDentifierProps) => {
     }, [],);
 
 
-    const compareDevices = (d1: DeviceInfo, d2: DeviceInfo) => {
+    const compareDevices = (d1: DeviceConfig, d2: DeviceConfig) => {
         return d1.maxSize - d2.maxSize;
     }
 

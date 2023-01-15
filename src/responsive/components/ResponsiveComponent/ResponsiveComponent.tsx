@@ -1,43 +1,26 @@
 import React from "react";
-import { useDeviceIDentifier } from "../../hooks/useDeviceIdentifier";
+import { Devices, DevicesInfo } from "../../interfaces";
+import { useDeviceCondition } from "../../hooks/useDeviceCondition";
 
 
-interface Props {
-    watch?: boolean,
-    mobile?: boolean,
-    tablet?: boolean,
-    desktop?: boolean,
-    tv?: boolean,
-    all?: boolean,
+interface Props extends Devices {
+    devicesInfo?: DevicesInfo,
     children: JSX.Element
 }
 
 export const ResponsiveComponent = (props: Props) => {
-    const { device } = useDeviceIDentifier({});
 
-    const isVisible = () => {
-        if (props.all) {
-            return true;
-        }
-        if (device === "WATCH" && props.watch) {
-            return true;
-        }
-        if (device === "MOBILE" && props.mobile) {
-            return true;
-        }
-        if (device === "TABLET" && props.tablet) {
-            return true;
-        }
-        if (device === "DESKTOP" && props.desktop) {
-            return true;
-        }
-        if (device === "TV" && props.tv) {
-            return true;
-        }
-        return false;
-    }
+    const visible = useDeviceCondition({
+        devicesInfo: props.devicesInfo,
+        watch: props.watch,
+        mobile: props.mobile,
+        tablet: props.tablet,
+        desktop: props.desktop,
+        tv: props.tv,
+        all: props.all,
+    })
 
-    if (!isVisible()) {
+    if (!visible) {
         return <></>
     }
     return <>{props.children}</>

@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-    position: PositionType,
+    position: string,
     border?: number,
     color1?: string,
     color2?: string,
@@ -15,15 +15,6 @@ interface Styles {
     element2_style: object,
 }
 
-enum PositionType {
-    left,
-    right,
-    top,
-    bottom,
-}
-
-export const Position = PositionType;
-
 export const DivisorLayout = (props: Props) => {
 
     let style: Styles = {
@@ -32,27 +23,27 @@ export const DivisorLayout = (props: Props) => {
         element2_style: {},
     };
 
-    if (props.position == PositionType.left) {
+    if (props.position == "left") {
         style = getStyleLeftSpace(props);
     }
 
-    if (props.position == PositionType.right) {
+    if (props.position == "right") {
         style = getStyleRightSpace(props);
     }
 
-    if (props.position == PositionType.top) {
+    if (props.position == "top") {
         style = getStyleTopSpace(props);
     }
 
-    if (props.position == PositionType.bottom) {
+    if (props.position == "bottom") {
         style = getStyleBottomSpace(props);
     }
 
     return (
         <>
-            <div style={style.container_style}>
-                <div style={style.element1_style}>{props.children[0]}</div>
-                <div style={style.element2_style}>{props.children[1]}</div>
+            <div className="divisor_layout_container" style={style.container_style}>
+                <div className="divisor_layout_container_element1" style={style.element1_style}>{props.children[0]}</div>
+                <div className="divisor_layout_container_element2" style={style.element2_style}>{props.children[1]}</div>
             </div>
         </>
     );
@@ -69,7 +60,8 @@ const getStyleLeftSpace = (props: Props) => {
         element1_style: {
             height: "100%",
             background: props.color1,
-            width: props.size + "px"
+            width: props.size + "px",
+            overflow: "auto"
         },
         element2_style: {
             height: "100%",
@@ -99,7 +91,8 @@ const getStyleRightSpace = (props: Props) => {
         element2_style: {
             height: "100%",
             background: props.color2,
-            width: props.size + "px"
+            width: props.size + "px",
+            overflow: "auto"
         },
     }
     return styles;
@@ -116,7 +109,8 @@ const getStyleTopSpace = (props: Props) => {
         element1_style: {
             width: "100%",
             background: props.color1,
-            height: props.size + "px"
+            height: props.size + "px",
+            overflow: "auto"
         },
         element2_style: {
             width: "100%",
@@ -145,7 +139,8 @@ const getStyleBottomSpace = (props: Props) => {
         element2_style: {
             width: "100%",
             background: props.color2,
-            height: props.size + "px"
+            height: props.size + "px",
+            overflow: "auto"
         },
     }
     return styles;
