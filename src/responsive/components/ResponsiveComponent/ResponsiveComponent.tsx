@@ -1,10 +1,10 @@
 import React from "react";
-import { Devices, DevicesInfo } from "../../interfaces";
+import { Devices, DevicesConfig } from "../../interfaces";
 import { useDeviceCondition } from "../../hooks/useDeviceCondition";
 
 
 interface Props extends Devices {
-    devicesInfo?: DevicesInfo,
+    devicesInfo?: DevicesConfig,
     children: JSX.Element
 }
 

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { LoginDirection } from "../interfaces";
 
 export const useLoginDirections = () => {
     const [loginDirection, setLoginDirectionState] = useState<LoginDirection>(LoginDirection.LOGIN);
     const [prevLoginDirection, setPrevLoginDirection] = useState<LoginDirection>(LoginDirection.LOGIN);
-    
+
     const setLoginDirection = (direction: LoginDirection) => {
         console.log(direction)
         if (direction !== LoginDirection.BACK) {
@@ -15,6 +15,6 @@ export const useLoginDirections = () => {
             setLoginDirectionState(prevLoginDirection);
         }
     }
-    
-    return {loginDirection, setLoginDirection}
+
+    return { loginDirection, setLoginDirection }
 }

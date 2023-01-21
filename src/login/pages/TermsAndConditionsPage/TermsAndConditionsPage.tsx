@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { SimpleLoginLink } from "../../compositors/navigation/SimpleLoginLink/SimpleLoginLink"
 import { LoginDirection } from "../../interfaces"
 

@@ -2,88 +2,72 @@ import { Menu } from "../../menu/interfaces";
 
 export const getConfig = () => {
     const config: Menu = {
-        "id": null,
-        "name": "ROOT",
-        "url": null,
         "menus": [
             {
                 "id": "m_club",
-                "name": "LIT_Club",
-                "url": "/club",
+                "text_code": "LIT_Club",
                 "menus": [
                     {
                         "id": "m_info_club",
-                        "name": "LIT_Información",
-                        "url": "/infoclub",
+                        "text_code": "LIT_Información",
                         "menus": []
                     },
                     {
                         "id": "m_gestion_club",
-                        "name": "LIT_Gestión",
-                        "url": "/gestionclub",
+                        "text_code": "LIT_Gestión",
                         "menus": []
                     }
                 ]
             },
             {
                 "id": "m_equipos",
-                "name": "LIT_Equipos",
-                "url": "/equipos",
+                "text_code": "LIT_Equipos",
                 "menus": [
                     {
                         "id": "m_info_equipos",
-                        "name": "LIT_Información",
-                        "url": "/infosequipos",
+                        "text_code": "LIT_Información",
                         "menus": []
                     },
                     {
                         "id": "m_gestion_equipos",
-                        "name": "LIT_Gestión",
-                        "url": "/gestionequipos",
+                        "text_code": "LIT_Gestión",
                         "menus": []
                     }
                 ]
             },
             {
                 "id": "m_partidos",
-                "name": "LIT_Partidos",
-                "url": "/partidos",
+                "text_code": "LIT_Partidos",
                 "menus": [
                     {
                         "id": "m_info_partidos",
-                        "name": "LIT_Información",
-                        "url": "/infopartidos",
+                        "text_code": "LIT_Información",
                         "menus": []
                     },
                     {
                         "id": "m_gestion_partidos",
-                        "name": "LIT_Gestión",
-                        "url": "/gestionpartidos",
+                        "text_code": "LIT_Gestión",
                         "menus": []
                     }
                 ]
             },
             {
                 "id": "m_socios",
-                "name": "LIT_Socios",
-                "url": "/socios",
+                "text_code": "LIT_Socios",
                 "menus": [
                     {
                         "id": "m_info_socios",
-                        "name": "LIT_Información",
-                        "url": "/infosocios",
+                        "text_code": "LIT_Información",
                         "menus": []
                     },
                     {
                         "id": "m_gestion_socios",
-                        "name": "LIT_Gestión",
-                        "url": "/gestionsocios",
+                        "text_code": "LIT_Gestión",
                         "menus": []
                     },
                     {
                         "id": "m_pagos_socios",
-                        "name": "LIT_Pagos",
-                        "url": "/pagossocios",
+                        "text_code": "LIT_Pagos",
                         "menus": []
                     }
                 ]

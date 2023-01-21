@@ -1,5 +1,4 @@
 import React from 'react'
-import { Input } from 'semantic-ui-react'
 import { useLoginInput } from '../../../../hooks/useLoginInput'
 
 interface SinpueInputProps {
@@ -16,13 +15,16 @@ interface SinpueInputProps {
 
 export const SimpleInput = (props: SinpueInputProps) => {
     const [data, setData] = useLoginInput(props.data, props.form);
+    console.log(data)
 
     let type = "text"
     if (props.crypt) {
         type = 'password'
     }
 
-    return <Input
+
+    /*
+    return <input
         className={props.className}
         icon={props.icon}
         iconPosition='left'
@@ -32,6 +34,11 @@ export const SimpleInput = (props: SinpueInputProps) => {
         transparent={props.transparent}
         error={props.error}
         disabled={props.disabled}
+        type={"text"}
+    />
+    */
+    return <input
+        onChange={e => setData(e.target.value)}
         type={type}
     />
 }

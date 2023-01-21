@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { useLogin } from "../../../hooks/useLogin";
+import { useLogin } from "./useLogin";
 
-export const useLoginInput = (k : string, form: string, def?: string) => {
+export const useLoginInput = (k: string, form: string, def?: string) => {
     const [value, setValue] = useState<string>(def || "");
     const { setFomrData } = useLogin();
 
-    const set = (v : string) => {
+    const set = (v: string) => {
         setValue(v)
     }
 
     useEffect(() => {
         setFomrData(k, value, form);
-    },[value]);
+    }, [value]);
 
-    const retorno : [string, (k: string) => void] = [
+    const retorno: [string, (k: string) => void] = [
         value,
         set
     ]

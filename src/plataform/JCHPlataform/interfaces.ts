@@ -7,6 +7,13 @@ export interface AppConfig {
     name: string,
 }
 
+export interface JCHPlataformContext {
+    devices_config: DevicesConfig,
+    menu: Menu,
+    login_config: LoginConfig,
+    app_config: AppConfig
+}
+
 export interface JCHPlataformConfig {
     devices_config?: () => DevicesConfig,
     menu?: () => Menu,

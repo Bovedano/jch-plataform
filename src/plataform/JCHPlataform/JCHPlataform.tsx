@@ -1,25 +1,26 @@
 import React from "react";
-import { DevicesConfig } from "../../responsive/interfaces";
-import { Menu } from "../../menu/interfaces";
 
 import { getConfig as getConfigDevices } from "../config/devices"
 import { getConfig as getConfigMenu } from "../config/demoMenu"
-import { JCHPlataformConfig } from "./interfaces";
+import { getConfig as getConfigLogin } from "../config/login"
+import { getConfig as getConfigApp } from "../config/appConfig"
+
+
+import { JCHPlataformConfig, JCHPlataformContext } from "./interfaces";
+
+import { PlataformContext } from "../context/PlataformContext";
 
 interface JCHPlataformPops {
     children: JSX.Element | JSX.Element[],
     config: JCHPlataformConfig
 }
 
-export interface JCHPlataformContext {
-    devices_config: DevicesConfig,
-    menu: Menu
-}
-
 
 const defaultConfig: JCHPlataformContext = {
     devices_config: getConfigDevices(),
-    menu: getConfigMenu()
+    menu: getConfigMenu(),
+    login_config: getConfigLogin(),
+    app_config: getConfigApp()
 }
 
 export const plataformContext = React.createContext<JCHPlataformContext>(defaultConfig);
@@ -35,9 +36,15 @@ export const JCHPlataform = (props: JCHPlataformPops) => {
 
     const value: JCHPlataformContext = {
         devices_config: checkConfig(props.config.devices_config, defaultConfig.devices_config),
-        menu: checkConfig(props.config.menu, defaultConfig.menu)
+        menu: checkConfig(props.config.menu, defaultConfig.menu),
+        login_config: checkConfig(props.config.login_config, defaultConfig.devices_config),
+        app_config: checkConfig(props.config.app_config, defaultConfig.app_config),
     }
 
-    return <plataformContext.Provider value={value} {...props} />
+    return <plataformContext.Provider value={value} {...props}>
+        <PlataformContext>
+            {props.children}
+        </PlataformContext>
+    </plataformContext.Provider>
 }
 

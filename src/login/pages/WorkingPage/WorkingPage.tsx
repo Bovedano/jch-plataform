@@ -1,12 +1,13 @@
-import { Loader } from "semantic-ui-react"
+import React from 'react'
 import { CenteredFormLayout } from "../../compositors/layouts/CenteredFormLayout/CenteredFormLayout"
-import { Spacer } from "../../../Atomics/Spacer/Spacer"
+import { Space } from '../../../comcomponents/Space/Space'
+
 
 export const WorkingPage = () => {
     return (
         <CenteredFormLayout width={1}>
-            <Spacer size={200} ></Spacer>
-            <Loader active centered inline size={"large"} color={"pulrple"} />
+            <Space size={200} ></Space>
+            <>Cargando...</>
         </CenteredFormLayout>
     )
 }

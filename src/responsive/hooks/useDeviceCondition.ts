@@ -1,8 +1,8 @@
-import { Devices, DevicesInfo } from "../interfaces";
+import { Devices, DevicesConfig } from "../interfaces";
 import { useDeviceIDentifier } from "./useDeviceIdentifier";
 
 interface ResponsiveConditionPropsProps extends Devices {
-    devicesInfo?: DevicesInfo
+    devicesInfo?: DevicesConfig
 }
 
 export const useDeviceCondition = (props: ResponsiveConditionPropsProps) => {

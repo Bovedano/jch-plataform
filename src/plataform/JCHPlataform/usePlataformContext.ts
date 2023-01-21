@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { JCHPlataformContext, plataformContext } from "./JCHPlataform";
+import { plataformContext } from "./JCHPlataform";
+import { JCHPlataformContext } from "./interfaces";
 
 
 export const usePlataformContext = () => {

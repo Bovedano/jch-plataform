@@ -1,11 +1,12 @@
-import { SemanticCOLORS } from "semantic-ui-react"
-import { useLogin } from "../../../../../hooks/useLogin"
+import React from 'react'
+
 import { LoginDirection } from "../../../interfaces";
+import { useLogin } from '../../../hooks/useLogin';
 
 interface SimpleLoginLinkProps {
     label: string,
     direction: LoginDirection,
-    color?: SemanticCOLORS,
+    color?: string,
 }
 export const SimpleLoginLink = (props: SimpleLoginLinkProps) => {
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { Forms } from "../interfaces";
 
 export const useLoginForms = () => {
@@ -38,7 +38,7 @@ export const useLoginForms = () => {
     }
 
     const submitForm = (form: string) => {
-        alert(JSON.stringify(forms))
+        alert(JSON.stringify(form))
     }
 
     return {
