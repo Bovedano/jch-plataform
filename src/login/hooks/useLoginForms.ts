@@ -32,7 +32,6 @@ export const useLoginForms = () => {
 
         formfilter.push({ k: k, v: v })
         splitedForms.searchForm.form = formfilter;
-        console.log(splitedForms)
 
         setFomrs({ forms: [...splitedForms.otherForms, splitedForms.searchForm] })
     }

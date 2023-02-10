@@ -1,15 +1,20 @@
 import React from "react";
 import { LoginContextProvider } from "../../login/context/LoginContext";
-import { usePlataformContext } from "../JCHPlataform/usePlataformContext";
+import { ThemeContextProvider } from "../../styles/context/useTheme";
+import { PrompterContextProvider } from "../../prompts/context/usePrompter";
 
 interface PlataformContextProps {
     children: JSX.Element | JSX.Element[]
 }
 
 export const PlataformContext = (props: PlataformContextProps) => {
-    const config = usePlataformContext();
+    console.log("REnder plataform context")
 
-    return <LoginContextProvider config={config.login_config}>
-        {props.children}
+    return <LoginContextProvider>
+        <ThemeContextProvider>
+            <PrompterContextProvider>
+                {props.children}
+            </PrompterContextProvider>
+        </ThemeContextProvider>
     </LoginContextProvider>
 }

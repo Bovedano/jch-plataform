@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { DeviceConfig, DevicesConfig } from "../interfaces";
-import { usePlataformContext } from "../../plataform/JCHPlataform/usePlataformContext";
-import { JCHPlataformContext } from "../../plataform/JCHPlataform/JCHPlataform";
+import { usePlataformContext } from "../../plataform/context/usePlataformContext";
+import { JCHPlataformContext } from "../../plataform/JCHPlataform/interfaces";
+
 
 
 interface HookReturn {
@@ -24,7 +25,6 @@ export const useDeviceIDentifier = (devicesInfo?: DevicesConfig | undefined) => 
     const handleResize = useCallback(() => {
 
         const device = calculateDevice(window.innerWidth);
-        console.log('resized to: ', window.innerWidth, 'px  Device: ', device.name)
         setDevice(device.name)
     }, [],);
 
@@ -34,7 +34,6 @@ export const useDeviceIDentifier = (devicesInfo?: DevicesConfig | undefined) => 
     }
 
     const calculateDevice = (width: number) => {
-        console.log("Devices")
 
         //Se ordenan los dispositivos
         const devicesordered = devicesConfig.devices.sort(compareDevices)
@@ -47,7 +46,6 @@ export const useDeviceIDentifier = (devicesInfo?: DevicesConfig | undefined) => 
                 deviceSelected = devicesordered[i];
             }
         }
-        console.log(devicesordered)
         return deviceSelected
     }
 

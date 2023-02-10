@@ -1,12 +1,16 @@
 import React from "react";
+import { useTheme } from "../../../styles/context/useTheme";
 
 interface Props {
-    position: string,
+    position: "left" | "right" | "top" | "bottom",
     border?: number,
     color1?: string,
     color2?: string,
     size: number,
-    children: [JSX.Element, JSX.Element]
+    children: [JSX.Element, JSX.Element],
+    className?: string,
+    theme_id1?: string,
+    theme_id2?: string,
 }
 
 interface Styles {
@@ -16,6 +20,8 @@ interface Styles {
 }
 
 export const DivisorLayout = (props: Props) => {
+    const { addThemeClass } = useTheme();
+
 
     let style: Styles = {
         container_style: {},
@@ -41,9 +47,9 @@ export const DivisorLayout = (props: Props) => {
 
     return (
         <>
-            <div className="divisor_layout_container" style={style.container_style}>
-                <div className="divisor_layout_container_element1" style={style.element1_style}>{props.children[0]}</div>
-                <div className="divisor_layout_container_element2" style={style.element2_style}>{props.children[1]}</div>
+            <div style={style.container_style}>
+                <div className={addThemeClass("divisor_layout_container_element1", props.theme_id1)} style={style.element1_style}>{props.children[0]}</div>
+                <div className={addThemeClass("divisor_layout_container_element2", props.theme_id2)} style={style.element2_style}>{props.children[1]}</div>
             </div>
         </>
     );

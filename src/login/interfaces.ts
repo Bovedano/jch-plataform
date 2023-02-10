@@ -1,31 +1,35 @@
 interface LoginConfigPages {
-    login? : JSX.Element,
+    login: JSX.Element,
+    registration: JSX.Element,
+    forgot_password: JSX.Element,
+    terms_and_conditions: JSX.Element,
+    loading_page: JSX.Element
 }
 
 export interface LoginConfig {
-    pages : LoginConfigPages
+    pages: LoginConfigPages
 }
 
 export interface LoginInfo {
-    username : string,
-    role : string,
-    language : string,
-    config : object,
+    username: string,
+    role: string,
+    language: string,
+    config: object,
 }
 
 interface FomrData {
-    k : string, 
-    v : string,
-    e? : string
+    k: string,
+    v: string,
+    e?: string
 }
 
 interface Form {
-    form :  FomrData[],
-    name : string
+    form: FomrData[],
+    name: string
 }
 
 export interface Forms {
-    forms : Form[],
+    forms: Form[],
 }
 
 export enum LoginDirection {

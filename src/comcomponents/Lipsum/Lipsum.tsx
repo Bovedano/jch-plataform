@@ -1,4 +1,6 @@
 import React from "react";
+import { CText } from "../CText/CText";
+
 
 interface LipsumProps {
     lines?: number,
@@ -20,5 +22,5 @@ export const Lipsum = (props: LipsumProps) => {
         result.push(base[mode]());
     }
 
-    return <>{result}</>
+    return <CText text={result.join(" ")} />
 }

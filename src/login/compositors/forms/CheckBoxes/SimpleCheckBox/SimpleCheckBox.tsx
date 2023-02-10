@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoginInput } from '../../../../hooks/useLoginInput';
+//import { useLoginInput } from '../../../../hooks/useLoginInput';
 
 interface SimpleCheckBoxProps {
     label: string,
@@ -7,10 +7,8 @@ interface SimpleCheckBoxProps {
     form: string,
 }
 
-export const SimpleCheckBox = (props: SimpleCheckBoxProps) => {
-    const [data, setData] = useLoginInput(props.data, props.form, "N");
-    console.log(data)
-    console.log(setData)
+export const SimpleCheckBox = (_props: SimpleCheckBoxProps) => {
+    //const [data, setData] = useLoginInput(props.data, props.form, "N");
 
     /*
     const handleChange = (e: any, params: any) => {

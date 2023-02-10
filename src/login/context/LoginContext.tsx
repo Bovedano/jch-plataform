@@ -2,6 +2,7 @@ import React from "react";
 import { LoginConfig, LoginDirection } from "../interfaces";
 import { useLoginForms } from "../hooks/useLoginForms";
 import { useLoginDirections } from "../hooks/useLoginDirections";
+import { usePlataformContext } from "../../plataform/context/usePlataformContext";
 
 export interface ILoginContext {
     submitForm: (form: string) => void,
@@ -12,7 +13,6 @@ export interface ILoginContext {
 }
 
 interface LoginContextProviderProps {
-    config: LoginConfig,
     children: any,
 }
 
@@ -26,7 +26,16 @@ export const LoginContext = React.createContext<ILoginContext>({
         console.log(direction)
         throw new Error("Function not implemented.");
     },
-    config: { pages: { login: <></> } },
+    config: {
+        pages:
+        {
+            login: <></>,
+            loading_page: <></>,
+            registration: <></>,
+            forgot_password: <></>,
+            terms_and_conditions: <></>
+        }
+    },
     setFomrData: function (k: string, v: string, f: string): void {
         console.log(k + v + f)
         throw new Error("Function not implemented.");
@@ -34,6 +43,7 @@ export const LoginContext = React.createContext<ILoginContext>({
 });
 
 export const LoginContextProvider = (props: LoginContextProviderProps) => {
+    const config = usePlataformContext();
     const { setFomrData, submitForm } = useLoginForms();
     const { loginDirection, setLoginDirection } = useLoginDirections();
 
@@ -42,7 +52,7 @@ export const LoginContextProvider = (props: LoginContextProviderProps) => {
         submitForm,
         loginDirection,
         setLoginDirection,
-        config: props.config,
+        config: config.login_config,
         setFomrData
     }
 

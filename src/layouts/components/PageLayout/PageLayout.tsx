@@ -59,18 +59,16 @@ export const PageLayout = (props: PageLayoutProps) => {
         footer: getSize(props.footer, props.footer_size, defaultSizes.footer)
     }
 
-    console.log("sizes", sizes)
-    console.log("forcedColors", forcedColors)
 
     if (props.responsive) {
-        return <DivisorLayout position="top" size={sizes.header} color1={props.forceColors ? forcedColors.header : undefined}>
+        return <DivisorLayout position="top" size={sizes.header} color1={props.forceColors ? forcedColors.header : undefined} theme_id1="header">
             <>{props.header}</>
-            <DivisorLayout position="bottom" size={sizes.footer} color2={props.forceColors ? forcedColors.footer : undefined}>
-                <DivisorLayout position="top" size={sizes.navbar} color1={props.forceColors ? forcedColors.navbar : undefined}>
+            <DivisorLayout position="bottom" size={sizes.footer} color2={props.forceColors ? forcedColors.footer : undefined} theme_id2="footer">
+                <DivisorLayout position="top" size={sizes.navbar} color1={props.forceColors ? forcedColors.navbar : undefined} theme_id1="navbar">
                     <>{props.navbar}</>
-                    <DivisorLayout position="top" size={sizes.left_aside} color1={props.forceColors ? forcedColors.left_aside : undefined}>
+                    <DivisorLayout position="top" size={sizes.left_aside} color1={props.forceColors ? forcedColors.left_aside : undefined} theme_id1="left_aside">
                         <>{props.left_aside}</>
-                        <DivisorLayout position="bottom" size={sizes.rigth_aside} color2={props.forceColors ? forcedColors.rigth_aside : undefined}>
+                        <DivisorLayout position="bottom" size={sizes.rigth_aside} color2={props.forceColors ? forcedColors.rigth_aside : undefined} theme_id1="article" theme_id2="rigth_aside">
                             <>{props.article}</>
                             <>{props.rigth_aside}</>
                         </DivisorLayout>
@@ -81,14 +79,14 @@ export const PageLayout = (props: PageLayoutProps) => {
         </DivisorLayout>
     }
 
-    return <DivisorLayout position="top" size={sizes.header} color1={props.forceColors ? forcedColors.header : undefined}>
+    return <DivisorLayout position="top" size={sizes.header} color1={props.forceColors ? forcedColors.header : undefined} theme_id1="header">
         <>{props.header}</>
-        <DivisorLayout position="bottom" size={sizes.footer} color2={props.forceColors ? forcedColors.footer : undefined}>
-            <DivisorLayout position="top" size={sizes.navbar} color1={props.forceColors ? forcedColors.navbar : undefined}>
+        <DivisorLayout position="bottom" size={sizes.footer} color2={props.forceColors ? forcedColors.footer : undefined} theme_id2="footer">
+            <DivisorLayout position="top" size={sizes.navbar} color1={props.forceColors ? forcedColors.navbar : undefined} theme_id1="navbar">
                 <>{props.navbar}</>
-                <DivisorLayout position="left" size={sizes.left_aside} color1={props.forceColors ? forcedColors.left_aside : undefined}>
+                <DivisorLayout position="left" size={sizes.left_aside} color1={props.forceColors ? forcedColors.left_aside : undefined} theme_id1="left_aside">
                     <>{props.left_aside}</>
-                    <DivisorLayout position="right" size={sizes.rigth_aside} color2={props.forceColors ? forcedColors.rigth_aside : undefined}>
+                    <DivisorLayout position="right" size={sizes.rigth_aside} color2={props.forceColors ? forcedColors.rigth_aside : undefined} theme_id1="article" theme_id2="rigth_aside">
                         <>{props.article}</>
                         <>{props.rigth_aside}</>
                     </DivisorLayout>
@@ -99,32 +97,6 @@ export const PageLayout = (props: PageLayoutProps) => {
     </DivisorLayout>
 }
 
-
-/*
-const getHeigthSizes = () => {
-    const sizes: Sizes = {
-        header: undefined,
-        navbar: undefined,
-        left_aside: undefined,
-        rigth_aside: undefined,
-        footer: undefined
-    }
-
-    return sizes
-}
-
-const getWidthSizes = () => {
-    const sizes: Sizes = {
-        header: undefined,
-        navbar: undefined,
-        left_aside: undefined,
-        rigth_aside: undefined,
-        footer: undefined
-    }
-
-    return sizes
-}
-*/
 
 const getSize = (asociatedComponent: LayoutComponent, propSize: Size, defaultSize: Size) => {
     if (!asociatedComponent) {

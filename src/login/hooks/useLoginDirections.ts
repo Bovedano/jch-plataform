@@ -6,12 +6,10 @@ export const useLoginDirections = () => {
     const [prevLoginDirection, setPrevLoginDirection] = useState<LoginDirection>(LoginDirection.LOGIN);
 
     const setLoginDirection = (direction: LoginDirection) => {
-        console.log(direction)
         if (direction !== LoginDirection.BACK) {
             setPrevLoginDirection(loginDirection)
             setLoginDirectionState(direction);
         } else {
-            console.log("PreDir" + prevLoginDirection)
             setLoginDirectionState(prevLoginDirection);
         }
     }

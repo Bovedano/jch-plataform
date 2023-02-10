@@ -1,10 +1,9 @@
 
-import { usePlataformContext } from "../../plataform/JCHPlataform/usePlataformContext";
+import { usePlataformContext } from "../../plataform/context/usePlataformContext";
 //import { useMenuContext } from "../context/useMenuContext";
 import { Menu } from "../interfaces";
 
-export const useMenu = (id: string) => {
-    console.log(id)
+export const useMenu = (_id: string) => {
 
     //const {selected} = useMenuContext();
     const config = usePlataformContext();
